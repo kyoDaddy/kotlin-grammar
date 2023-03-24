@@ -8,14 +8,14 @@ fun main() {
 
 
     val fruits = listOf(
-        Fruit17("사과", 1000),
-        Fruit17("사과", 1200),
-        Fruit17("사과", 1200),
-        Fruit17("사과", 1500),
-        Fruit17("바나나", 3000),
-        Fruit17("바나나", 3200),
-        Fruit17("바나나", 2500),
-        Fruit17("수박", 10000),
+        Fruit17("사과", 1000, 1),
+        Fruit17("사과", 1200,2),
+        Fruit17("사과", 1200,3),
+        Fruit17("사과", 1500,4),
+        Fruit17("바나나", 3000,5),
+        Fruit17("바나나", 3200,6),
+        Fruit17("바나나", 2500,7),
+        Fruit17("수박", 10000,8),
     )
 
     // 익명함수
@@ -49,13 +49,21 @@ fun main() {
 }
 
 class Fruit17(
-    val name: String, val price: Int,
-)
+    val name: String, val price: Int, val id: Int,
+) {
+    fun nullOrValue() {
+        return this.nullOrValue()
+    }
+
+    val isSamePrice: Boolean
+        get() = price == 1000
+}
 
 // 함수 자체를 파라메터로 받아서 과일을 필터링 해주는 함수
 private fun filterFruits(
     fruits: List<Fruit17>, filter: (Fruit17) -> Boolean
 ): List<Fruit17> {
+    /*
     val results = mutableListOf<Fruit17>()
     for (fruit in results) {
         if (filter(fruit)) {
@@ -63,4 +71,6 @@ private fun filterFruits(
         }
     }
     return results
+    */
+    return fruits.filter(filter)
 }
